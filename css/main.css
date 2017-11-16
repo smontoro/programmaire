@@ -1,0 +1,18 @@
+header {
+	background-color: white;
+	width: 100%;
+	height: 100px;
+}
+
+.background {
+	width: 100%;
+	height: 577px;
+	background-image: url("../img/peter.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.btn-start {
+	margin-top: 300px;
+	background-color: tomato;
+}
