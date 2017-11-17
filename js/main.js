@@ -66,20 +66,18 @@ function showQuestion() {
 			buttonAnswer.appendChild(buttonAnswerText)
 			main.appendChild(buttonAnswer)
 
-			console.log(buttonAnswer.value)
+		
+			//console.log(buttonAnswerValue)
 
 		}	
 	}
 	
-
 };
 
 function checkAnswer(buttonAnswer, correctAnswer) {
-		//console.log(correctAnswer)
+		if (buttonAnswer == correctAnswer ) {
 
-		if (buttonAnswer.value == correctAnswer ) {
-
-			//console.log("correct")
+			console.log("correct")
 		
 		}
 	
