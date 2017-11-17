@@ -2,7 +2,7 @@ var questionObjs = [
 	{
 		question: "What does HTML stand for?",
 		answer: ["How To Make Lattes", "Hyper Text Markup Language", "Hyper Textual Makeup Language", "Hyper Text Markup Logic"],	
-		correct: 'Hypertext Markup Language'
+		correct: 'Hyper Text Markup Language'
 	},
 	{
 		question: "What is the difference between a class and an id?",
@@ -29,6 +29,7 @@ var questionObjs = [
 ]
 
 var main = document.getElementById("main")
+var question = 0;
 
 
 function startGame() {
@@ -58,8 +59,8 @@ function showQuestion() {
 				buttonAnswer.value = questionObjs[i].answer[j]
 				buttonAnswer.className = "btn btn-info m-2"
 
-				// buttonAnswer.setAttribute("onclick", "checkAnswer(this," + questionObjs[i].correct + ")")
-				buttonAnswer.addEventListener("click", checkAnswer(this, correctAnswer))
+				buttonAnswer.setAttribute("onclick", "checkAnswer(this, questionObjs[0])")
+				// buttonAnswer.addEventListener("click", checkAnswer(this.value, correctAnswer))
 			var buttonAnswerText = document.createTextNode(questionObjs[i].answer[j])
 		
 			
@@ -71,12 +72,16 @@ function showQuestion() {
 
 		}	
 	}
+
+	
 	
 };
 
 function checkAnswer(buttonAnswer, correctAnswer) {
-		if (buttonAnswer == correctAnswer ) {
 
+		if (buttonAnswer.value == correctAnswer.correct ) {
+			questionObjs.shift();
+			showQuestion();
 			console.log("correct")
 		
 		}
