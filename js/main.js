@@ -58,6 +58,7 @@ function showQuestion() {
 				buttonAnswer.name = "button" + [i]
 				buttonAnswer.value = questionObjs[i].answer[j]
 				buttonAnswer.className = "btn btn-info m-2"
+				buttonAnswer.id = "buttonAnswer" + [i]
 
 				buttonAnswer.setAttribute("onclick", "checkAnswer(this, questionObjs[0])")
 				// buttonAnswer.addEventListener("click", checkAnswer(this.value, correctAnswer))
@@ -72,20 +73,31 @@ function showQuestion() {
 
 		}	
 	}
-
-	
 	
 };
 
 function checkAnswer(buttonAnswer, correctAnswer) {
+	var correct = 0
+	var incorrect = 0
 
 		if (buttonAnswer.value == correctAnswer.correct ) {
+			buttonAnswer.className = ' correct';
+			correct++
 			questionObjs.shift();
 			showQuestion();
-			console.log("correct")
-		
 		}
-	
+
+		if (buttonAnswer.value != correctAnswer.correct) {
+			buttonAnswer.className =  ' incorrect';
+			incorrect++;
+			questionObjs.shift();
+			showQuestion();
+		}
+
+						// update correct and incorrect values
+	document.getElementById('correct').textContent = correct;
+	document.getElementById('incorrect').textContent = incorrect;
+
 
 };
 
