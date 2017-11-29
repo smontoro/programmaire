@@ -28,39 +28,44 @@ var questionObjs = [
 
 ]
 
+//gets the div
 var main = document.getElementById("main")
-var question = 0;
+//var question = 0;
 
-
+//clears the button and starts the game
 function startGame() {
 	main.innerHTML = ""
 
 	 showQuestion()
 };
 
+//loops through the submitted answers
 function showQuestion() {
 	main.innerHTML = ""
-	console.log("running")
-
+	//loops through the object questions and puts them into h2 tags
 	for (var i = 0; i < 1; i++) {	
-		console.log("running")
 		var h2Question = document.createElement("h2")
-			h2Question.id = "questions" + i
+			//stores the object question in text
 		var h2QuestionText = document.createTextNode(questionObjs[i].question)
 	
+		//appends the questions to the #main div
 		h2Question.appendChild(h2QuestionText)
 		main.appendChild(h2Question)
 
+		//loops through all of the object answers
+		//why do you need i here?
 		for (var j = 0; j < questionObjs[i].answer.length; j++) {
+			//stores the correct answer in the var
 			var correctAnswer = questionObjs[i].correct
+			//stores the possible answers in buttons
 			var buttonAnswer = document.createElement("button")
 				buttonAnswer.type = "button"
-				buttonAnswer.name = "button" + [i]
+				//gives the button a value of the correct answer to check against
 				buttonAnswer.value = questionObjs[i].answer[j]
 				buttonAnswer.className = "btn btn-info m-2"
-				buttonAnswer.id = "buttonAnswer" + [i]
 
-				buttonAnswer.setAttribute("onclick", "checkAnswer(this, questionObjs[0])")
+				//when the button is clicked, run checkAnswer() to see if it is correct
+				buttonAnswer.setAttribute("onclick", "checkAnswer()")
 				// buttonAnswer.addEventListener("click", checkAnswer(this.value, correctAnswer))
 			var buttonAnswerText = document.createTextNode(questionObjs[i].answer[j])
 		
@@ -68,15 +73,36 @@ function showQuestion() {
 			buttonAnswer.appendChild(buttonAnswerText)
 			main.appendChild(buttonAnswer)
 
-		
-			//console.log(buttonAnswerValue)
-
 		}	
 	}
 	
 };
 
-function checkAnswer(buttonAnswer, correctAnswer) {
+function checkAnswer() {
+	var btn = document.getElementsByTagName("button")
+
+	//loop through the button values
+	for (var i = 0; i < btn.length; i++) {
+		//if the value matches correct answer, shift to next question
+		if (btn[i].value == questionObjs[0].correct){
+			console.log("correct")
+		
+			questionObjs.shift()
+
+			if (questionObjs.length === 0) {
+				main.innerHTML = ""
+				main.innerHTML = "<h1>Good Job, You Completed the Quiz!!!<h1>" + "</br>" +  "<img src='img/success.jpg'>"
+
+				return
+			}
+
+		}
+	} 
+		
+};
+
+
+/*function checkAnswer(buttonAnswer, correctAnswer) {
 	var correct = 0
 	var incorrect = 0
 
@@ -99,7 +125,7 @@ function checkAnswer(buttonAnswer, correctAnswer) {
 	document.getElementById('incorrect').textContent = incorrect;
 
 
-};
+};*/
 
 
 
