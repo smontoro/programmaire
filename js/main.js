@@ -53,7 +53,6 @@ function showQuestion() {
 		main.appendChild(h2Question)
 
 		//loops through all of the object answers
-		//why do you need i here?
 		for (var j = 0; j < questionObjs[i].answer.length; j++) {
 			//stores the correct answer in the var
 			var correctAnswer = questionObjs[i].correct
@@ -68,7 +67,6 @@ function showQuestion() {
 				buttonAnswer.setAttribute("onclick", "checkAnswer()")
 				// buttonAnswer.addEventListener("click", checkAnswer(this.value, correctAnswer))
 			var buttonAnswerText = document.createTextNode(questionObjs[i].answer[j])
-		
 			
 			buttonAnswer.appendChild(buttonAnswerText)
 			main.appendChild(buttonAnswer)
@@ -88,6 +86,8 @@ function checkAnswer() {
 			console.log("correct")
 		
 			questionObjs.shift()
+
+			showQuestion()
 
 			if (questionObjs.length === 0) {
 				main.innerHTML = ""
