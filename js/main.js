@@ -76,7 +76,7 @@ function showQuestion() {
 	
 };
 
-function checkAnswer() {
+/*function checkAnswer() {
 	var btn = document.getElementsByTagName("button")
 
 	//loop through the button values
@@ -99,19 +99,19 @@ function checkAnswer() {
 		}
 	} 
 		
-};
+};*/
 
 
-/*function checkAnswer(buttonAnswer, correctAnswer) {
+function checkAnswer(buttonAnswer, correctAnswer) {
 	var correct = 0
 	var incorrect = 0
 
-		if (buttonAnswer.value == correctAnswer.correct ) {
+		if (buttonAnswer.value == correctAnswer.correct) {
 			buttonAnswer.className = ' correct';
-			correct++
+			correct++;
 			questionObjs.shift();
 			showQuestion();
-		}
+		} else {
 
 		if (buttonAnswer.value != correctAnswer.correct) {
 			buttonAnswer.className =  ' incorrect';
@@ -119,13 +119,14 @@ function checkAnswer() {
 			questionObjs.shift();
 			showQuestion();
 		}
+	}
 
 						// update correct and incorrect values
 	document.getElementById('correct').textContent = correct;
 	document.getElementById('incorrect').textContent = incorrect;
 
 
-};*/
+};
 
 
 
