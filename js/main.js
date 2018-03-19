@@ -76,7 +76,7 @@ function showQuestion() {
 	
 };
 
-/*function checkAnswer() {
+function checkAnswer() {
 	var btn = document.getElementsByTagName("button")
 
 	//loop through the button values
@@ -84,31 +84,29 @@ function showQuestion() {
 		//if the value matches correct answer, shift to next question
 		if (btn[i].value == questionObjs[0].correct){
 			console.log("correct")
-		
 			questionObjs.shift()
+			showQuestion() 
+		} 
 
-			showQuestion()
-
-			if (questionObjs.length === 0) {
+			/*if (questionObjs.length === 0) {
 				main.innerHTML = ""
 				main.innerHTML = "<h1>Good Job, You Completed the Quiz!!!<h1>" + "</br>" +  "<img src='img/success.jpg'>"
 
 				return
-			}
+			}*/
 
 		}
-	} 
 		
-};*/
+};
 
 
-function checkAnswer(buttonAnswer, correctAnswer) {
+/*function checkAnswer(buttonAnswer, correctAnswer) {
 	var correct = 0
 	var incorrect = 0
 
 		if (buttonAnswer.value == correctAnswer.correct) {
 			buttonAnswer.className = ' correct';
-			correct++;
+			correct++
 			questionObjs.shift();
 			showQuestion();
 		} else {
@@ -127,7 +125,7 @@ function checkAnswer(buttonAnswer, correctAnswer) {
 
 
 };
-
+*/
 
 
 
