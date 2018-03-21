@@ -58,7 +58,7 @@ function showQuestion() {
 				buttonAnswer.className = "btn btn-info m-2"
 				buttonAnswer.type = "button"
 				buttonAnswer.value = questionObjs[i].answer[j]
-				buttonAnswer.setAttribute("onclick", "checkAnswer()") 
+				buttonAnswer.setAttribute("onclick", "checkAnswer(event)") 
 				//adds the answer text to the buttons
 			var buttonAnswerText = document.createTextNode(questionObjs[i].answer[j])
 				buttonAnswer.appendChild(buttonAnswerText)
@@ -69,15 +69,13 @@ function showQuestion() {
 };
 
 //check to see if the value of the button clicked matches the correct answer
-function checkAnswer() {
-	var btn = document.getElementsByTagName("button")
-	var correct = 0
-	var incorrect = 0
+function checkAnswer(event) {
+	var btn = event.target
 
 	//loops through each button option's values to compare against the correct answer
 	for (var i = 0; i < btn.length; i++) {
 		//if the option is equal to the correct answer
-		if (btn[i].value == questionObjs[0].correct){
+		if (btn.value == questionObjs[0].correct){
 			//give it the class name of "correct" 
 			btn.className = 'correct'
 			//add one to correct
@@ -85,7 +83,7 @@ function checkAnswer() {
 		} else 
 
 		//if the option is not equal to the correct answer
-		if (btn[i].value != questionObjs[0].correct) {
+		if (btn.value != questionObjs[0].correct) {
 			//give it the class name of "incorrect"
 			btn.className = 'incorrect'
 			//add one to incorrect
@@ -97,17 +95,17 @@ function checkAnswer() {
 	questionObjs.shift()
 	showQuestion()
 
-	//update correct and incorrect values
-	document.getElementById('correct').textContent = correct
-	document.getElementById('incorrect').textContent = incorrect
 };
 
 
+	var correct = 0
+	var incorrect = 0
 
 
 
-
-
+	//update correct and incorrect values
+	document.getElementById('correct').textContent = correct
+	document.getElementById('incorrect').textContent = incorrect
 
 
 
