@@ -93,9 +93,11 @@ function checkAnswer() {
 		}
 	}
 
+	//move to the next question
 	questionObjs.shift()
 	showQuestion()
 
+	//update correct and incorrect values
 	document.getElementById('correct').textContent = correct
 	document.getElementById('correct').textContent = correct
 };
