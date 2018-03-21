@@ -79,7 +79,7 @@ function checkAnswer() {
 		//if the option is equal to the correct answer
 		if (btn[i].value == questionObjs[0].correct){
 			//give it the class name of "correct" 
-			btn[i].className = 'correct'
+			btn.className = 'correct'
 			//add one to correct
 			correct++
 		} else 
@@ -87,7 +87,7 @@ function checkAnswer() {
 		//if the option is not equal to the correct answer
 		if (btn[i].value != questionObjs[0].correct) {
 			//give it the class name of "incorrect"
-			btn[i].className = 'incorrect'
+			btn.className = 'incorrect'
 			//add one to incorrect
 			incorrect++
 		}
@@ -99,7 +99,7 @@ function checkAnswer() {
 
 	//update correct and incorrect values
 	document.getElementById('correct').textContent = correct
-	document.getElementById('correct').textContent = correct
+	document.getElementById('incorrect').textContent = incorrect
 };
 
 
