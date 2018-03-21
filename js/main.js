@@ -71,23 +71,34 @@ function showQuestion() {
 //check to see if the value of the button clicked matches the correct answer
 function checkAnswer() {
 	var btn = document.getElementsByTagName("button")
+	var correct = 0
+	var incorrect = 0
 
 	//loops through each button option's values to compare against the correct answer
 	for (var i = 0; i < btn.length; i++) {
+		//if the option is equal to the correct answer
 		if (btn[i].value == questionObjs[0].correct){
-			console.log("correct")
+			//give it the class name of "correct" 
+			btn[i].className = 'correct'
+			//add one to correct
+			correct++
 		} else 
 
+		//if the option is not equal to the correct answer
 		if (btn[i].value != questionObjs[0].correct) {
-			console.log("incorrect")
+			//give it the class name of "incorrect"
+			btn[i].className = 'incorrect'
+			//add one to incorrect
+			incorrect++
 		}
 	}
 
 	questionObjs.shift()
 	showQuestion()
+
+	document.getElementById('correct').textContent = correct
+	document.getElementById('correct').textContent = correct
 };
-
-
 
 
 
