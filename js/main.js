@@ -69,43 +69,40 @@ function showQuestion() {
 };
 
 //check to see if the value of the button clicked matches the correct answer
-function checkAnswer(event) {
-	var btn = event.target
+function checkAnswer(e) {
+	var btn = e
+	var correct = 0
+	var incorrect = 0
 
-	//loops through each button option's values to compare against the correct answer
-	for (var i = 0; i < btn.length; i++) {
 		//if the option is equal to the correct answer
 		if (btn.value == questionObjs[0].correct){
 			//give it the class name of "correct" 
 			btn.className = 'correct'
 			//add one to correct
 			correct++
-		} else 
-
-		//if the option is not equal to the correct answer
-		if (btn.value != questionObjs[0].correct) {
+		} else {
 			//give it the class name of "incorrect"
 			btn.className = 'incorrect'
 			//add one to incorrect
 			incorrect++
 		}
-	}
 
 	//move to the next question
 	questionObjs.shift()
 	showQuestion()
+	updateScore()
 
 };
 
 
-	var correct = 0
-	var incorrect = 0
-
-
-
+function updateScore() {
 	//update correct and incorrect values
 	document.getElementById('correct').textContent = correct
 	document.getElementById('incorrect').textContent = incorrect
+}
+
+
+
 
 
 
