@@ -87,15 +87,18 @@ function checkAnswer(e) {
 			incorrect++
 		}
 
+
 	//move to the next question
+
 	questionObjs.shift()
 	showQuestion()
 	updateScore()
+	
 
 };
 
 
-function updateScore() {
+function updateScore(correct, incorrect) {
 	//update correct and incorrect values
 	document.getElementById('correct').textContent = correct
 	document.getElementById('incorrect').textContent = incorrect
