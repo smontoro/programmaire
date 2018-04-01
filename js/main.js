@@ -80,12 +80,15 @@ function checkAnswer(e) {
 			btn.className = 'correct'
 			//add one to correct
 			correct++
+			
 		} else {
 			//give it the class name of "incorrect"
 			btn.className = 'incorrect'
 			//add one to incorrect
 			incorrect++
 		}
+
+		console.log(correct)
 
 
 	//move to the next question
@@ -98,10 +101,10 @@ function checkAnswer(e) {
 };
 
 
-function updateScore(correct, incorrect) {
+function updateScore() {
 	//update correct and incorrect values
-	document.getElementById('correct').textContent = correct
-	document.getElementById('incorrect').textContent = incorrect
+	document.querySelector('#correct').textContent = correct
+	document.querySelector('#incorrect').textContent = incorrect
 }
 
 
