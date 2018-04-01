@@ -32,13 +32,6 @@ var questionObjs = [
 var main = document.getElementById('main')
 
 
-//clear the start button and begin the game with the first question
-function startGame() {
-	main.innerHTML = ""
-
-	showQuestion()
-};
-
 //show the question and answer choices 
 function showQuestion() {
 	main.innerHTML = ""
@@ -76,28 +69,20 @@ function checkAnswer(e) {
 
 		//if the option is equal to the correct answer
 		if (btn.value == questionObjs[0].correct){
-			//give it the class name of "correct" 
-			btn.className = 'correct'
 			//add one to correct
 			correct++
 			
 		} else {
-			//give it the class name of "incorrect"
-			btn.className = 'incorrect'
 			//add one to incorrect
 			incorrect++
 		}
 
-		console.log(correct)
-
-
 	//move to the next question
-
+	updateScore()
 	questionObjs.shift()
 	showQuestion()
-	updateScore()
 	
-
+	
 };
 
 
