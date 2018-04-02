@@ -36,39 +36,45 @@ var main = document.getElementById('main')
 function showQuestion() {
 	main.innerHTML = ""
 
-	//loop through the questionObjs.answers and puts them into h2 tags
+	//loop through the questions and puts them into h2 tags
 	for (var i = 0; i < 1; i++) {
 		//creates the h2 tag and stores the question text inside
 		var h2Question = document.createElement("h2")
 		var h2QuestionText = document.createTextNode(questionObjs[i].question)
 			h2Question.appendChild(h2QuestionText)
 			main.appendChild(h2Question)
+		
 
-		//loop through all the questionObjs.answers by length to check agaist the correct answer
+		//add the possible answers to the button texts and values
 		for (var j = 0; j < questionObjs[i].answer.length; j++) {
-				//creates buttons and attaches the answer value to them
+				//create buttons and attach the answer value to them
 			var buttonAnswer = document.createElement("button")
 				buttonAnswer.className = "btn btn-info m-2"
 				buttonAnswer.type = "button"
 				buttonAnswer.value = questionObjs[i].answer[j]
 				buttonAnswer.setAttribute("onclick", "checkAnswer(event)") 
+
 				//adds the answer text to the buttons
 			var buttonAnswerText = document.createTextNode(questionObjs[i].answer[j])
 				buttonAnswer.appendChild(buttonAnswerText)
 				main.appendChild(buttonAnswer)
+
 		}
 
+
 	}
+	
 };
+
+
+var correct = 0
+var incorrect = 0
 
 //check to see if the value of the button clicked matches the correct answer
 function checkAnswer(e) {
-	var btn = e
-	var correct = 0
-	var incorrect = 0
+	var buttonClicked = e
 
-		//if the option is equal to the correct answer
-		if (btn.value == questionObjs[0].correct){
+		if (buttonClicked.value == questionObjs[0].correct){
 			//add one to correct
 			correct++
 			
@@ -77,12 +83,12 @@ function checkAnswer(e) {
 			incorrect++
 		}
 
+	
 	//move to the next question
 	updateScore()
 	questionObjs.shift()
 	showQuestion()
-	
-	
+
 };
 
 
