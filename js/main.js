@@ -52,7 +52,7 @@ function showQuestion() {
 				buttonAnswer.className = "btn btn-info m-2"
 				buttonAnswer.type = "button"
 				buttonAnswer.value = questionObjs[i].answer[j]
-				buttonAnswer.setAttribute("onclick", "checkAnswer(event)") 
+				buttonAnswer.setAttribute("onclick", "checkAnswer(event.target)") 
 
 				//adds the answer text to the buttons
 			var buttonAnswerText = document.createTextNode(questionObjs[i].answer[j])
@@ -72,9 +72,9 @@ var incorrect = 0
 
 //check to see if the value of the button clicked matches the correct answer
 function checkAnswer(e) {
-	var buttonClicked = e
+	var btn = e
 
-		if (buttonClicked.value == questionObjs[0].correct){
+		if (btn.value == questionObjs[0].correct){
 			//add one to correct
 			correct++
 			
